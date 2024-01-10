@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Shopping Cart</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header h1 {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    main {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .cart-item {
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .like-button {
+      cursor: pointer;
+      color: black;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .fa-cart-shopping {
+       align-self: center;
+    }
+    .cartContainer {
+        position: relative;
+    }
+    .cartQuantity {
+        position: absolute;
+        top: -30px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Shopping Cart</h1>
+    <div class="cartContainer">
+        <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ebf835;"></i>
+        <p class="cartQuantity" id="qt">0</p>
+    </div>
+  </header>
+
+    
+  <main id="products-container">
+    <!-- Product listings will be dynamically added here using JavaScript -->
+  </main>
+
+  <div id="shopping-cart">
+    <!-- Cart items will be dynamically added here using JavaScript -->
+  </div>
+
+  
+        <div class="cart-row" data-price="3">
+               <span class="Item1-title"><img class="Item1" src="Images/2Black.jpeg" width="100" height="100" alt="Hair product">2Black Hair product</span>
+            <span class="item1-Price">Price: $3</span>
+            <div class="item-quantity">
+                <button onclick="decreaseQuantity(this)">-</button>
+                <span class="quantity">1</span>
+                <button onclick="increaseQuantity(this)">+</button>
+                <span class="dolz">
+                    $<span class="item-total">1</span>
+                </span>
+               <span class="heart">
+                <i class="like-button far fa-heart" onclick="toggleLike(this)"></i>
+               </span>
+               <button onclick="deleteItem(this)">Delete</button>
+            </div>
+        </div>
+
+        <div class="cart-row" data-price="10">
+            <span class="Item1-title"><img class="Item2" src="Images/Nivea.jpeg" width="100" height="100" alt="Body lotion">Nivea Body lotion</span>
+            <span class="item1-Price">Price: $10</span>
+            <div class="item-quantity">
+                <button onclick="decreaseQuantity(this)">-</button>
+                <span class="quantity">1</span>
+                <button onclick="increaseQuantity(this)">+</button>
+                <span class="dolz">
+                    $<span class="item-total">2</span>
+                </span>
+               <span class="heart">
+                <i class="like-button far fa-heart" onclick="toggleLike(this)"></i>
+               </span>
+               <button onclick="deleteItem(this)">Delete</button>
+            </div>
+            
+
+        </div>
+        <div id="total">
+            <strong>Total: $<span id="cart-total"></span></strong>
+        </div>
+
+     </div>
+     <script src="https://kit.fontawesome.com/f217b94637.js" crossorigin="anonymous"></script>
+  <footer>
+    <p>&copy; 2022 Shopping Cart Website</p>
+  </footer>
+
+  
+</body>
+</html>
